@@ -1,0 +1,1587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.9.8 on darwin)" generated="20220120 14:49:54.213" rpa="false" schemaversion="2">
+<suite id="s1" name="1 Test" source="/Users/admin/PycharmProjects/saucedemo/test_cases/1_test.robot">
+<test id="s1-t1" name="Standart user purchase test case">
+<kw name="Open browser and maximize" library="resourses" type="SETUP">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${user_url}</arg>
+<arg>${user_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220120 14:49:54.639" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20220120 14:49:54.638" endtime="20220120 14:49:58.990"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220120 14:49:58.991" endtime="20220120 14:49:59.162"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Starting test in ${user_browser}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:49:59.163" level="INFO">Starting test in Chrome</msg>
+<status status="PASS" starttime="20220120 14:49:59.162" endtime="20220120 14:49:59.163"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Url: ${user_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:49:59.164" level="INFO">Test Url: https://www.saucedemo.com/</msg>
+<status status="PASS" starttime="20220120 14:49:59.163" endtime="20220120 14:49:59.164"/>
+</kw>
+<status status="PASS" starttime="20220120 14:49:54.637" endtime="20220120 14:49:59.164"/>
+</kw>
+<kw name="Login to webpage" library="resourses">
+<arg>${standard_user}</arg>
+<arg>${password}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:user-name</arg>
+<arg>${user-name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:49:59.166" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<status status="PASS" starttime="20220120 14:49:59.165" endtime="20220120 14:49:59.463"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${user-password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:49:59.463" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg timestamp="20220120 14:49:59.527" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220120 14:49:59.653" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220120 14:49:59.463" endtime="20220120 14:49:59.653"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:49:59.654" level="INFO">Clicking button 'id:login-button'.</msg>
+<status status="PASS" starttime="20220120 14:49:59.653" endtime="20220120 14:49:59.946"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Username:${user-name}, Password: ${user-password}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:49:59.949" level="INFO">Username:standard_user, Password: secret_sauce</msg>
+<status status="PASS" starttime="20220120 14:49:59.947" endtime="20220120 14:49:59.949"/>
+</kw>
+<status status="PASS" starttime="20220120 14:49:59.164" endtime="20220120 14:49:59.950"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://www.saucedemo.com/inventory.html</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20220120 14:50:00.182" level="INFO">Current location is 'https://www.saucedemo.com/inventory.html'.</msg>
+<status status="PASS" starttime="20220120 14:49:59.950" endtime="20220120 14:50:00.182"/>
+</kw>
+<kw name="Add to cart" library="resourses">
+<arg>//*[@id="item_5_title_link"]/div</arg>
+<arg>//*[@id="inventory_container"]/div/div[4]/div[2]/div[2]/div</arg>
+<arg>//*[@id="add-to-cart-sauce-labs-fleece-jacket"]</arg>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${product_price_id}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220120 14:50:00.185" level="INFO">${product_price_id} = //*[@id="inventory_container"]/div/div[4]/div[2]/div[2]/div</msg>
+<status status="PASS" starttime="20220120 14:50:00.183" endtime="20220120 14:50:00.185"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_name}</var>
+<arg>xpath:${product_id}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:00.235" level="INFO">${product_name} = Sauce Labs Fleece Jacket</msg>
+<status status="PASS" starttime="20220120 14:50:00.185" endtime="20220120 14:50:00.235"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_price}</var>
+<arg>xpath:${product_price_id}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:00.280" level="INFO">${product_price} = $49.99</msg>
+<status status="PASS" starttime="20220120 14:50:00.235" endtime="20220120 14:50:00.280"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Product name: ${product_name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:00.282" level="INFO">Product name: Sauce Labs Fleece Jacket</msg>
+<status status="PASS" starttime="20220120 14:50:00.281" endtime="20220120 14:50:00.282"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Product price: ${product_price}[1:]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:00.283" level="INFO">Product price: 49.99</msg>
+<status status="PASS" starttime="20220120 14:50:00.282" endtime="20220120 14:50:00.283"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${add_btn_id}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:00.284" level="INFO">Clicking button '//*[@id="add-to-cart-sauce-labs-fleece-jacket"]'.</msg>
+<status status="PASS" starttime="20220120 14:50:00.283" endtime="20220120 14:50:00.426"/>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<arg>3</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220120 14:50:00.426" endtime="20220120 14:50:00.428"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>class:btn_secondary</arg>
+<arg>REMOVE</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220120 14:50:00.428" level="INFO">Verifying element 'class:btn_secondary' contains exact text 'REMOVE'.</msg>
+<status status="PASS" starttime="20220120 14:50:00.428" endtime="20220120 14:50:00.455"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:00.183" endtime="20220120 14:50:00.455"/>
+</kw>
+<kw name="Open shopping cart" library="resourses">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>xpath://*[@id="shopping_cart_container"]/a</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:00.456" level="INFO">Clicking link 'xpath://*[@id="shopping_cart_container"]/a'.</msg>
+<status status="PASS" starttime="20220120 14:50:00.456" endtime="20220120 14:50:00.609"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220120 14:50:00.781" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-19.png"&gt;&lt;img src="selenium-screenshot-19.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220120 14:50:00.609" endtime="20220120 14:50:00.782"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:00.455" endtime="20220120 14:50:00.782"/>
+</kw>
+<kw name="Checkout shopping cart" library="resourses">
+<arg>//*[@id="inventory_container"]/div/div[4]/div[2]/div[2]/div</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:checkout</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:00.783" level="INFO">Clicking button 'id:checkout'.</msg>
+<status status="PASS" starttime="20220120 14:50:00.783" endtime="20220120 14:50:00.865"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:first-name</arg>
+<arg>John</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:00.865" level="INFO">Typing text 'John' into text field 'id:first-name'.</msg>
+<status status="PASS" starttime="20220120 14:50:00.865" endtime="20220120 14:50:00.997"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:last-name</arg>
+<arg>Doe</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:00.997" level="INFO">Typing text 'Doe' into text field 'id:last-name'.</msg>
+<status status="PASS" starttime="20220120 14:50:00.997" endtime="20220120 14:50:01.155"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:postal-code</arg>
+<arg>01010</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:01.155" level="INFO">Typing text '01010' into text field 'id:postal-code'.</msg>
+<status status="PASS" starttime="20220120 14:50:01.155" endtime="20220120 14:50:01.292"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:continue</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:01.292" level="INFO">Clicking button 'id:continue'.</msg>
+<status status="PASS" starttime="20220120 14:50:01.292" endtime="20220120 14:50:01.387"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Checkout: Overview</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220120 14:50:01.422" level="INFO">Current page contains text 'Checkout: Overview'.</msg>
+<status status="PASS" starttime="20220120 14:50:01.388" endtime="20220120 14:50:01.422"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>page should contain:</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:01.423" level="INFO">page should contain:</msg>
+<status status="PASS" starttime="20220120 14:50:01.422" endtime="20220120 14:50:01.423"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${final_price}</var>
+<arg>xpath://*[@id="checkout_summary_container"]/div/div[1]/div[3]/div[2]/div[2]/div</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:01.452" level="INFO">${final_price} = $49.99</msg>
+<status status="PASS" starttime="20220120 14:50:01.423" endtime="20220120 14:50:01.452"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Final price: ${final_price}[1:]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:01.453" level="INFO">Final price: 49.99</msg>
+<status status="PASS" starttime="20220120 14:50:01.453" endtime="20220120 14:50:01.453"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${total_price}</var>
+<arg>xpath://*[@id="checkout_summary_container"]/div/div[2]/div[7]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:01.482" level="INFO">${total_price} = Total: $53.99</msg>
+<status status="PASS" starttime="20220120 14:50:01.453" endtime="20220120 14:50:01.482"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Total price: ${total_price}[1:]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:01.483" level="INFO">Total price: otal: $53.99</msg>
+<status status="PASS" starttime="20220120 14:50:01.483" endtime="20220120 14:50:01.483"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:finish</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:01.483" level="INFO">Clicking button 'id:finish'.</msg>
+<status status="PASS" starttime="20220120 14:50:01.483" endtime="20220120 14:50:01.578"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>THANK YOU FOR YOUR ORDER</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220120 14:50:01.616" level="INFO">Current page contains text 'THANK YOU FOR YOUR ORDER'.</msg>
+<status status="PASS" starttime="20220120 14:50:01.578" endtime="20220120 14:50:01.616"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:back-to-products</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:01.617" level="INFO">Clicking button 'id:back-to-products'.</msg>
+<status status="PASS" starttime="20220120 14:50:01.617" endtime="20220120 14:50:01.818"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://www.saucedemo.com/inventory.html</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20220120 14:50:02.002" level="INFO">Current location is 'https://www.saucedemo.com/inventory.html'.</msg>
+<status status="PASS" starttime="20220120 14:50:01.818" endtime="20220120 14:50:02.003"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_price}</var>
+<arg>xpath:${product_price_id}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:02.170" level="INFO">${product_price} = $49.99</msg>
+<status status="PASS" starttime="20220120 14:50:02.003" endtime="20220120 14:50:02.171"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Product price: ${product_price}[1:]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:02.172" level="INFO">Product price: 49.99</msg>
+<status status="PASS" starttime="20220120 14:50:02.171" endtime="20220120 14:50:02.172"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${product_price}[1:] == ${final_price}[1:]</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20220120 14:50:02.172" endtime="20220120 14:50:02.173"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:00.782" endtime="20220120 14:50:02.174"/>
+</kw>
+<kw name="Logout from webpage" library="resourses">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:react-burger-menu-btn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:02.176" level="INFO">Clicking button 'id:react-burger-menu-btn'.</msg>
+<status status="PASS" starttime="20220120 14:50:02.175" endtime="20220120 14:50:02.304"/>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<arg>3</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220120 14:50:02.304" endtime="20220120 14:50:02.307"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>id:logout_sidebar_link</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:02.308" level="INFO">Clicking link 'id:logout_sidebar_link'.</msg>
+<status status="PASS" starttime="20220120 14:50:02.307" endtime="20220120 14:50:02.403"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Logout from webpage</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:02.404" level="INFO">Logout from webpage</msg>
+<status status="PASS" starttime="20220120 14:50:02.404" endtime="20220120 14:50:02.404"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:02.174" endtime="20220120 14:50:02.405"/>
+</kw>
+<kw name="Close browser and log" library="resourses" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220120 14:50:02.407" endtime="20220120 14:50:02.619"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Finish test.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:02.621" level="INFO">Finish test.</msg>
+<status status="PASS" starttime="20220120 14:50:02.620" endtime="20220120 14:50:02.621"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:02.406" endtime="20220120 14:50:02.622"/>
+</kw>
+<tag>login logout add_to_cart checkout</tag>
+<status status="PASS" starttime="20220120 14:49:54.635" endtime="20220120 14:50:02.623"/>
+</test>
+<test id="s1-t2" name="Locked out user login test case">
+<kw name="Open browser and maximize" library="resourses" type="SETUP">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${user_url}</arg>
+<arg>${user_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220120 14:50:02.646" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20220120 14:50:02.631" endtime="20220120 14:50:07.173"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220120 14:50:07.173" endtime="20220120 14:50:07.352"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Starting test in ${user_browser}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:07.353" level="INFO">Starting test in Chrome</msg>
+<status status="PASS" starttime="20220120 14:50:07.352" endtime="20220120 14:50:07.353"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Url: ${user_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:07.354" level="INFO">Test Url: https://www.saucedemo.com/</msg>
+<status status="PASS" starttime="20220120 14:50:07.353" endtime="20220120 14:50:07.354"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:02.626" endtime="20220120 14:50:07.355"/>
+</kw>
+<kw name="Login to webpage" library="resourses">
+<arg>${locked_out_user}</arg>
+<arg>${password}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:user-name</arg>
+<arg>${user-name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:07.359" level="INFO">Typing text 'locked_out_user' into text field 'id:user-name'.</msg>
+<status status="PASS" starttime="20220120 14:50:07.358" endtime="20220120 14:50:07.663"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${user-password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:07.665" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg timestamp="20220120 14:50:07.728" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220120 14:50:07.819" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220120 14:50:07.663" endtime="20220120 14:50:07.819"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:07.819" level="INFO">Clicking button 'id:login-button'.</msg>
+<status status="PASS" starttime="20220120 14:50:07.819" endtime="20220120 14:50:07.919"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Username:${user-name}, Password: ${user-password}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:07.920" level="INFO">Username:locked_out_user, Password: secret_sauce</msg>
+<status status="PASS" starttime="20220120 14:50:07.919" endtime="20220120 14:50:07.920"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:07.356" endtime="20220120 14:50:07.921"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Sorry, this user has been locked out.</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220120 14:50:07.947" level="INFO">Current page contains text 'Sorry, this user has been locked out.'.</msg>
+<status status="PASS" starttime="20220120 14:50:07.921" endtime="20220120 14:50:07.947"/>
+</kw>
+<kw name="Close browser and log" library="resourses" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220120 14:50:07.949" endtime="20220120 14:50:08.131"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Finish test.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:08.132" level="INFO">Finish test.</msg>
+<status status="PASS" starttime="20220120 14:50:08.131" endtime="20220120 14:50:08.132"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:07.948" endtime="20220120 14:50:08.132"/>
+</kw>
+<tag>login locked_out_user</tag>
+<status status="PASS" starttime="20220120 14:50:02.624" endtime="20220120 14:50:08.132"/>
+</test>
+<test id="s1-t3" name="Problem user sorting hilo-lohi test case">
+<kw name="Open browser and maximize" library="resourses" type="SETUP">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${user_url}</arg>
+<arg>${user_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220120 14:50:08.139" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20220120 14:50:08.137" endtime="20220120 14:50:11.896"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220120 14:50:11.898" endtime="20220120 14:50:12.051"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Starting test in ${user_browser}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:12.052" level="INFO">Starting test in Chrome</msg>
+<status status="PASS" starttime="20220120 14:50:12.051" endtime="20220120 14:50:12.052"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Url: ${user_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:12.052" level="INFO">Test Url: https://www.saucedemo.com/</msg>
+<status status="PASS" starttime="20220120 14:50:12.052" endtime="20220120 14:50:12.052"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:08.136" endtime="20220120 14:50:12.053"/>
+</kw>
+<kw name="Login to webpage" library="resourses">
+<arg>${problem_user}</arg>
+<arg>${password}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:user-name</arg>
+<arg>${user-name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:12.055" level="INFO">Typing text 'problem_user' into text field 'id:user-name'.</msg>
+<status status="PASS" starttime="20220120 14:50:12.054" endtime="20220120 14:50:12.364"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${user-password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:12.365" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg timestamp="20220120 14:50:12.424" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220120 14:50:12.546" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220120 14:50:12.364" endtime="20220120 14:50:12.546"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:12.547" level="INFO">Clicking button 'id:login-button'.</msg>
+<status status="PASS" starttime="20220120 14:50:12.546" endtime="20220120 14:50:12.783"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Username:${user-name}, Password: ${user-password}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:12.784" level="INFO">Username:problem_user, Password: secret_sauce</msg>
+<status status="PASS" starttime="20220120 14:50:12.783" endtime="20220120 14:50:12.784"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:12.053" endtime="20220120 14:50:12.784"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://www.saucedemo.com/inventory.html</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20220120 14:50:12.793" level="INFO">Current location is 'https://www.saucedemo.com/inventory.html'.</msg>
+<status status="PASS" starttime="20220120 14:50:12.785" endtime="20220120 14:50:12.794"/>
+</kw>
+<kw name="Check sorting items hilo-lohi" library="resourses">
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>xpath://*[@id="header_container"]/div[2]/div[2]/span/select</arg>
+<arg>${sort_hilo}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220120 14:50:12.796" level="INFO">Selecting options from selection list 'xpath://*[@id="header_container"]/div[2]/div[2]/span/select' by value hilo.</msg>
+<status status="PASS" starttime="20220120 14:50:12.795" endtime="20220120 14:50:13.016"/>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>${elem}</var>
+<arg>xpath://*[@id="inventory_container"]/div</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20220120 14:50:13.048" level="INFO">${elem} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="66a742409a1bdca4ab512c8c7fbcfbd9", element="0c50d31d-7bf5-49a9-bd4c-1c9805fccfd7")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20220120 14:50:13.017" endtime="20220120 14:50:13.048"/>
+</kw>
+<for flavor="IN">
+<var>${item_hilo}</var>
+<value>@{elem}</value>
+<iter>
+<var name="${item_hilo}">&lt;selenium.webdriver.remote.webelement.WebElement (session="66a742409a1bdca4ab512c8c7fbcfbd9", element="0c50d31d-7bf5-49a9-bd4c-1c9805fccfd7")&gt;</var>
+<kw name="Log" library="BuiltIn">
+<arg>${item_hilo.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:13.116" level="INFO">Sauce Labs Backpack
+carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.
+$29.99
+ADD TO CART
+Sauce Labs Bike Light
+A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
+$9.99
+ADD TO CART
+Sauce Labs Bolt T-Shirt
+Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.
+$15.99
+ADD TO CART
+Sauce Labs Fleece Jacket
+It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.
+$49.99
+ADD TO CART
+Sauce Labs Onesie
+Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.
+$7.99
+ADD TO CART
+Test.allTheThings() T-Shirt (Red)
+This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.
+$15.99
+ADD TO CART</msg>
+<status status="PASS" starttime="20220120 14:50:13.049" endtime="20220120 14:50:13.117"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:13.049" endtime="20220120 14:50:13.117"/>
+</iter>
+<iter>
+<var name="${item_hilo}">&lt;selenium.webdriver.remote.webelement.WebElement (session="66a742409a1bdca4ab512c8c7fbcfbd9", element="8f8fed2d-bffe-441e-a1fd-3740ecf83cb0")&gt;</var>
+<kw name="Log" library="BuiltIn">
+<arg>${item_hilo.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:13.187" level="INFO">Sauce Labs Backpack
+carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.
+$29.99
+ADD TO CART
+Sauce Labs Bike Light
+A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
+$9.99
+ADD TO CART
+Sauce Labs Bolt T-Shirt
+Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.
+$15.99
+ADD TO CART
+Sauce Labs Fleece Jacket
+It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.
+$49.99
+ADD TO CART
+Sauce Labs Onesie
+Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.
+$7.99
+ADD TO CART
+Test.allTheThings() T-Shirt (Red)
+This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.
+$15.99
+ADD TO CART</msg>
+<status status="PASS" starttime="20220120 14:50:13.117" endtime="20220120 14:50:13.187"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:13.117" endtime="20220120 14:50:13.187"/>
+</iter>
+<status status="PASS" starttime="20220120 14:50:13.048" endtime="20220120 14:50:13.187"/>
+</for>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>xpath://*[@id="header_container"]/div[2]/div[2]/span/select</arg>
+<arg>${sort_lohi}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220120 14:50:13.188" level="INFO">Selecting options from selection list 'xpath://*[@id="header_container"]/div[2]/div[2]/span/select' by value lohi.</msg>
+<status status="PASS" starttime="20220120 14:50:13.187" endtime="20220120 14:50:13.304"/>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>${elem}</var>
+<arg>xpath://*[@id="inventory_container"]/div</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20220120 14:50:13.320" level="INFO">${elem} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="66a742409a1bdca4ab512c8c7fbcfbd9", element="0c50d31d-7bf5-49a9-bd4c-1c9805fccfd7")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20220120 14:50:13.304" endtime="20220120 14:50:13.320"/>
+</kw>
+<for flavor="IN">
+<var>${item_lohi}</var>
+<value>@{elem}</value>
+<iter>
+<var name="${item_lohi}">&lt;selenium.webdriver.remote.webelement.WebElement (session="66a742409a1bdca4ab512c8c7fbcfbd9", element="0c50d31d-7bf5-49a9-bd4c-1c9805fccfd7")&gt;</var>
+<kw name="Log" library="BuiltIn">
+<arg>${item_lohi.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:13.388" level="INFO">Sauce Labs Backpack
+carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.
+$29.99
+ADD TO CART
+Sauce Labs Bike Light
+A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
+$9.99
+ADD TO CART
+Sauce Labs Bolt T-Shirt
+Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.
+$15.99
+ADD TO CART
+Sauce Labs Fleece Jacket
+It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.
+$49.99
+ADD TO CART
+Sauce Labs Onesie
+Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.
+$7.99
+ADD TO CART
+Test.allTheThings() T-Shirt (Red)
+This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.
+$15.99
+ADD TO CART</msg>
+<status status="PASS" starttime="20220120 14:50:13.322" endtime="20220120 14:50:13.388"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:13.321" endtime="20220120 14:50:13.388"/>
+</iter>
+<iter>
+<var name="${item_lohi}">&lt;selenium.webdriver.remote.webelement.WebElement (session="66a742409a1bdca4ab512c8c7fbcfbd9", element="8f8fed2d-bffe-441e-a1fd-3740ecf83cb0")&gt;</var>
+<kw name="Log" library="BuiltIn">
+<arg>${item_lohi.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:13.447" level="INFO">Sauce Labs Backpack
+carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.
+$29.99
+ADD TO CART
+Sauce Labs Bike Light
+A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
+$9.99
+ADD TO CART
+Sauce Labs Bolt T-Shirt
+Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.
+$15.99
+ADD TO CART
+Sauce Labs Fleece Jacket
+It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.
+$49.99
+ADD TO CART
+Sauce Labs Onesie
+Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.
+$7.99
+ADD TO CART
+Test.allTheThings() T-Shirt (Red)
+This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.
+$15.99
+ADD TO CART</msg>
+<status status="PASS" starttime="20220120 14:50:13.389" endtime="20220120 14:50:13.447"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:13.388" endtime="20220120 14:50:13.447"/>
+</iter>
+<status status="PASS" starttime="20220120 14:50:13.320" endtime="20220120 14:50:13.448"/>
+</for>
+<kw name="Should Be True" library="BuiltIn">
+<arg>'${item_hilo.text}[:10]' != '${item_lohi.text}[:10]'</arg>
+<doc>Fails if the given condition is not true.</doc>
+<msg timestamp="20220120 14:50:13.599" level="FAIL">''Sauce Labs' != 'Sauce Labs'' should be true.</msg>
+<status status="FAIL" starttime="20220120 14:50:13.448" endtime="20220120 14:50:13.599"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>should be true</arg>
+<arg>${item_hilo.text}[:10] != ${item_lohi.text}[:10]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20220120 14:50:13.600" endtime="20220120 14:50:13.600"/>
+</kw>
+<status status="FAIL" starttime="20220120 14:50:12.794" endtime="20220120 14:50:13.601"/>
+</kw>
+<kw name="Close browser and log" library="resourses" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220120 14:50:13.602" endtime="20220120 14:50:13.799"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Finish test.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:13.801" level="INFO">Finish test.</msg>
+<status status="PASS" starttime="20220120 14:50:13.800" endtime="20220120 14:50:13.802"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:13.602" endtime="20220120 14:50:13.803"/>
+</kw>
+<tag>hilo-lohi</tag>
+<tag>login</tag>
+<tag>problem_user</tag>
+<tag>sorting</tag>
+<status status="FAIL" starttime="20220120 14:50:08.135" endtime="20220120 14:50:13.803">''Sauce Labs' != 'Sauce Labs'' should be true.</status>
+</test>
+<test id="s1-t4" name="Problem user sorting az-za test case">
+<kw name="Open browser and maximize" library="resourses" type="SETUP">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${user_url}</arg>
+<arg>${user_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220120 14:50:13.810" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20220120 14:50:13.809" endtime="20220120 14:50:17.488"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220120 14:50:17.489" endtime="20220120 14:50:17.657"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Starting test in ${user_browser}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:17.658" level="INFO">Starting test in Chrome</msg>
+<status status="PASS" starttime="20220120 14:50:17.657" endtime="20220120 14:50:17.658"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Url: ${user_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:17.659" level="INFO">Test Url: https://www.saucedemo.com/</msg>
+<status status="PASS" starttime="20220120 14:50:17.658" endtime="20220120 14:50:17.659"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:13.807" endtime="20220120 14:50:17.660"/>
+</kw>
+<kw name="Login to webpage" library="resourses">
+<arg>${problem_user}</arg>
+<arg>${password}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:user-name</arg>
+<arg>${user-name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:17.663" level="INFO">Typing text 'problem_user' into text field 'id:user-name'.</msg>
+<status status="PASS" starttime="20220120 14:50:17.662" endtime="20220120 14:50:17.935"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${user-password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:17.937" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg timestamp="20220120 14:50:17.995" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220120 14:50:18.135" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220120 14:50:17.936" endtime="20220120 14:50:18.135"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:18.137" level="INFO">Clicking button 'id:login-button'.</msg>
+<status status="PASS" starttime="20220120 14:50:18.136" endtime="20220120 14:50:18.354"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Username:${user-name}, Password: ${user-password}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:18.355" level="INFO">Username:problem_user, Password: secret_sauce</msg>
+<status status="PASS" starttime="20220120 14:50:18.354" endtime="20220120 14:50:18.356"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:17.661" endtime="20220120 14:50:18.356"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://www.saucedemo.com/inventory.html</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20220120 14:50:18.393" level="INFO">Current location is 'https://www.saucedemo.com/inventory.html'.</msg>
+<status status="PASS" starttime="20220120 14:50:18.357" endtime="20220120 14:50:18.393"/>
+</kw>
+<kw name="Check sorting items az-za" library="resourses">
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>xpath://*[@id="header_container"]/div[2]/div[2]/span/select</arg>
+<arg>${sort_az}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220120 14:50:18.396" level="INFO">Selecting options from selection list 'xpath://*[@id="header_container"]/div[2]/div[2]/span/select' by value az.</msg>
+<status status="PASS" starttime="20220120 14:50:18.395" endtime="20220120 14:50:18.513"/>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>${elem}</var>
+<arg>xpath://*[@id="inventory_container"]/div</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20220120 14:50:18.530" level="INFO">${elem} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="8754d23e91e310956c71f755eda75628", element="1e2120db-c371-4ae9-80c3-feb84c09cc03")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20220120 14:50:18.514" endtime="20220120 14:50:18.530"/>
+</kw>
+<for flavor="IN">
+<var>${item_az}</var>
+<value>@{elem}</value>
+<iter>
+<var name="${item_az}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8754d23e91e310956c71f755eda75628", element="1e2120db-c371-4ae9-80c3-feb84c09cc03")&gt;</var>
+<kw name="Log" library="BuiltIn">
+<arg>${item_az.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:18.601" level="INFO">Sauce Labs Backpack
+carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.
+$29.99
+ADD TO CART
+Sauce Labs Bike Light
+A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
+$9.99
+ADD TO CART
+Sauce Labs Bolt T-Shirt
+Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.
+$15.99
+ADD TO CART
+Sauce Labs Fleece Jacket
+It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.
+$49.99
+ADD TO CART
+Sauce Labs Onesie
+Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.
+$7.99
+ADD TO CART
+Test.allTheThings() T-Shirt (Red)
+This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.
+$15.99
+ADD TO CART</msg>
+<status status="PASS" starttime="20220120 14:50:18.532" endtime="20220120 14:50:18.601"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:18.531" endtime="20220120 14:50:18.601"/>
+</iter>
+<iter>
+<var name="${item_az}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8754d23e91e310956c71f755eda75628", element="038f55e8-57fc-4f40-b6b4-74ffe9a84987")&gt;</var>
+<kw name="Log" library="BuiltIn">
+<arg>${item_az.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:18.668" level="INFO">Sauce Labs Backpack
+carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.
+$29.99
+ADD TO CART
+Sauce Labs Bike Light
+A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
+$9.99
+ADD TO CART
+Sauce Labs Bolt T-Shirt
+Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.
+$15.99
+ADD TO CART
+Sauce Labs Fleece Jacket
+It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.
+$49.99
+ADD TO CART
+Sauce Labs Onesie
+Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.
+$7.99
+ADD TO CART
+Test.allTheThings() T-Shirt (Red)
+This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.
+$15.99
+ADD TO CART</msg>
+<status status="PASS" starttime="20220120 14:50:18.601" endtime="20220120 14:50:18.668"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:18.601" endtime="20220120 14:50:18.668"/>
+</iter>
+<status status="PASS" starttime="20220120 14:50:18.530" endtime="20220120 14:50:18.668"/>
+</for>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>xpath://*[@id="header_container"]/div[2]/div[2]/span/select</arg>
+<arg>${sort_za}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220120 14:50:18.669" level="INFO">Selecting options from selection list 'xpath://*[@id="header_container"]/div[2]/div[2]/span/select' by value za.</msg>
+<status status="PASS" starttime="20220120 14:50:18.668" endtime="20220120 14:50:18.781"/>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>${elem}</var>
+<arg>xpath://*[@id="inventory_container"]/div</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20220120 14:50:18.796" level="INFO">${elem} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="8754d23e91e310956c71f755eda75628", element="1e2120db-c371-4ae9-80c3-feb84c09cc03")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20220120 14:50:18.781" endtime="20220120 14:50:18.796"/>
+</kw>
+<for flavor="IN">
+<var>${item_za}</var>
+<value>@{elem}</value>
+<iter>
+<var name="${item_za}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8754d23e91e310956c71f755eda75628", element="1e2120db-c371-4ae9-80c3-feb84c09cc03")&gt;</var>
+<kw name="Log" library="BuiltIn">
+<arg>${item_za.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:18.854" level="INFO">Sauce Labs Backpack
+carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.
+$29.99
+ADD TO CART
+Sauce Labs Bike Light
+A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
+$9.99
+ADD TO CART
+Sauce Labs Bolt T-Shirt
+Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.
+$15.99
+ADD TO CART
+Sauce Labs Fleece Jacket
+It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.
+$49.99
+ADD TO CART
+Sauce Labs Onesie
+Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.
+$7.99
+ADD TO CART
+Test.allTheThings() T-Shirt (Red)
+This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.
+$15.99
+ADD TO CART</msg>
+<status status="PASS" starttime="20220120 14:50:18.797" endtime="20220120 14:50:18.854"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:18.797" endtime="20220120 14:50:18.854"/>
+</iter>
+<iter>
+<var name="${item_za}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8754d23e91e310956c71f755eda75628", element="038f55e8-57fc-4f40-b6b4-74ffe9a84987")&gt;</var>
+<kw name="Log" library="BuiltIn">
+<arg>${item_za.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:18.933" level="INFO">Sauce Labs Backpack
+carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.
+$29.99
+ADD TO CART
+Sauce Labs Bike Light
+A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
+$9.99
+ADD TO CART
+Sauce Labs Bolt T-Shirt
+Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.
+$15.99
+ADD TO CART
+Sauce Labs Fleece Jacket
+It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.
+$49.99
+ADD TO CART
+Sauce Labs Onesie
+Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.
+$7.99
+ADD TO CART
+Test.allTheThings() T-Shirt (Red)
+This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.
+$15.99
+ADD TO CART</msg>
+<status status="PASS" starttime="20220120 14:50:18.855" endtime="20220120 14:50:18.933"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:18.854" endtime="20220120 14:50:18.933"/>
+</iter>
+<status status="PASS" starttime="20220120 14:50:18.796" endtime="20220120 14:50:18.933"/>
+</for>
+<kw name="Should Be True" library="BuiltIn">
+<arg>'${item_az.text}[:10]' != '${item_za.text}[:10]'</arg>
+<doc>Fails if the given condition is not true.</doc>
+<msg timestamp="20220120 14:50:19.084" level="FAIL">''Sauce Labs' != 'Sauce Labs'' should be true.</msg>
+<status status="FAIL" starttime="20220120 14:50:18.934" endtime="20220120 14:50:19.084"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>should be true</arg>
+<arg>${item_az.text}[:10] != '${item_za.text}[:10]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20220120 14:50:19.085" endtime="20220120 14:50:19.085"/>
+</kw>
+<status status="FAIL" starttime="20220120 14:50:18.394" endtime="20220120 14:50:19.086"/>
+</kw>
+<kw name="Close browser and log" library="resourses" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220120 14:50:19.087" endtime="20220120 14:50:19.273"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Finish test.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:19.274" level="INFO">Finish test.</msg>
+<status status="PASS" starttime="20220120 14:50:19.273" endtime="20220120 14:50:19.274"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:19.086" endtime="20220120 14:50:19.274"/>
+</kw>
+<tag>hilo-lohi</tag>
+<tag>login</tag>
+<tag>problem_user</tag>
+<tag>sorting</tag>
+<status status="FAIL" starttime="20220120 14:50:13.804" endtime="20220120 14:50:19.275">''Sauce Labs' != 'Sauce Labs'' should be true.</status>
+</test>
+<test id="s1-t5" name="Problem user check item name test case">
+<kw name="Open browser and maximize" library="resourses" type="SETUP">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${user_url}</arg>
+<arg>${user_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220120 14:50:19.283" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20220120 14:50:19.282" endtime="20220120 14:50:22.976"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220120 14:50:22.979" endtime="20220120 14:50:23.139"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Starting test in ${user_browser}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:23.140" level="INFO">Starting test in Chrome</msg>
+<status status="PASS" starttime="20220120 14:50:23.139" endtime="20220120 14:50:23.140"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Url: ${user_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:23.141" level="INFO">Test Url: https://www.saucedemo.com/</msg>
+<status status="PASS" starttime="20220120 14:50:23.140" endtime="20220120 14:50:23.141"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:19.280" endtime="20220120 14:50:23.141"/>
+</kw>
+<kw name="Login to webpage" library="resourses">
+<arg>${problem_user}</arg>
+<arg>${password}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:user-name</arg>
+<arg>${user-name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:23.145" level="INFO">Typing text 'problem_user' into text field 'id:user-name'.</msg>
+<status status="PASS" starttime="20220120 14:50:23.145" endtime="20220120 14:50:23.401"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${user-password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:23.402" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg timestamp="20220120 14:50:23.457" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220120 14:50:23.564" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220120 14:50:23.401" endtime="20220120 14:50:23.564"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:23.565" level="INFO">Clicking button 'id:login-button'.</msg>
+<status status="PASS" starttime="20220120 14:50:23.565" endtime="20220120 14:50:23.715"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Username:${user-name}, Password: ${user-password}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:23.717" level="INFO">Username:problem_user, Password: secret_sauce</msg>
+<status status="PASS" starttime="20220120 14:50:23.715" endtime="20220120 14:50:23.717"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:23.143" endtime="20220120 14:50:23.718"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://www.saucedemo.com/inventory.html</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20220120 14:50:23.730" level="INFO">Current location is 'https://www.saucedemo.com/inventory.html'.</msg>
+<status status="PASS" starttime="20220120 14:50:23.718" endtime="20220120 14:50:23.730"/>
+</kw>
+<kw name="Check item name" library="resourses">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${title0}</var>
+<arg>xpath://*[@id="item_4_title_link"]/div</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:23.903" level="INFO">${title0} = Sauce Labs Backpack</msg>
+<status status="PASS" starttime="20220120 14:50:23.732" endtime="20220120 14:50:23.903"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>xpath://*[@id="item_4_title_link"]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:23.904" level="INFO">Clicking link 'xpath://*[@id="item_4_title_link"]'.</msg>
+<status status="PASS" starttime="20220120 14:50:23.903" endtime="20220120 14:50:24.028"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${title1}</var>
+<arg>xpath://*[@id="inventory_item_container"]/div/div/div[2]/div[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:24.086" level="INFO">${title1} = Sauce Labs Fleece Jacket</msg>
+<status status="PASS" starttime="20220120 14:50:24.029" endtime="20220120 14:50:24.086"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>'${title0}' == '${title1}'</arg>
+<doc>Fails if the given condition is not true.</doc>
+<msg timestamp="20220120 14:50:24.088" level="FAIL">''Sauce Labs Backpack' == 'Sauce Labs Fleece Jacket'' should be true.</msg>
+<status status="FAIL" starttime="20220120 14:50:24.086" endtime="20220120 14:50:24.088"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>should be true</arg>
+<arg>${title0} == ${title1}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20220120 14:50:24.089" endtime="20220120 14:50:24.089"/>
+</kw>
+<status status="FAIL" starttime="20220120 14:50:23.731" endtime="20220120 14:50:24.090"/>
+</kw>
+<kw name="Close browser and log" library="resourses" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220120 14:50:24.092" endtime="20220120 14:50:24.273"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Finish test.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:24.274" level="INFO">Finish test.</msg>
+<status status="PASS" starttime="20220120 14:50:24.273" endtime="20220120 14:50:24.274"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:24.091" endtime="20220120 14:50:24.274"/>
+</kw>
+<tag>item_name</tag>
+<tag>problem_user</tag>
+<status status="FAIL" starttime="20220120 14:50:19.276" endtime="20220120 14:50:24.275">''Sauce Labs Backpack' == 'Sauce Labs Fleece Jacket'' should be true.</status>
+</test>
+<test id="s1-t6" name="Problem user check item description test case">
+<kw name="Open browser and maximize" library="resourses" type="SETUP">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${user_url}</arg>
+<arg>${user_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220120 14:50:24.282" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20220120 14:50:24.281" endtime="20220120 14:50:27.957"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220120 14:50:27.958" endtime="20220120 14:50:28.134"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Starting test in ${user_browser}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:28.135" level="INFO">Starting test in Chrome</msg>
+<status status="PASS" starttime="20220120 14:50:28.134" endtime="20220120 14:50:28.136"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Url: ${user_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:28.136" level="INFO">Test Url: https://www.saucedemo.com/</msg>
+<status status="PASS" starttime="20220120 14:50:28.136" endtime="20220120 14:50:28.136"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:24.279" endtime="20220120 14:50:28.136"/>
+</kw>
+<kw name="Login to webpage" library="resourses">
+<arg>${problem_user}</arg>
+<arg>${password}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:user-name</arg>
+<arg>${user-name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:28.138" level="INFO">Typing text 'problem_user' into text field 'id:user-name'.</msg>
+<status status="PASS" starttime="20220120 14:50:28.138" endtime="20220120 14:50:28.380"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${user-password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:28.381" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg timestamp="20220120 14:50:28.434" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220120 14:50:28.551" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220120 14:50:28.380" endtime="20220120 14:50:28.551"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:28.552" level="INFO">Clicking button 'id:login-button'.</msg>
+<status status="PASS" starttime="20220120 14:50:28.551" endtime="20220120 14:50:28.750"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Username:${user-name}, Password: ${user-password}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:28.751" level="INFO">Username:problem_user, Password: secret_sauce</msg>
+<status status="PASS" starttime="20220120 14:50:28.750" endtime="20220120 14:50:28.752"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:28.137" endtime="20220120 14:50:28.752"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://www.saucedemo.com/inventory.html</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20220120 14:50:28.770" level="INFO">Current location is 'https://www.saucedemo.com/inventory.html'.</msg>
+<status status="PASS" starttime="20220120 14:50:28.752" endtime="20220120 14:50:28.771"/>
+</kw>
+<kw name="Check item description" library="resourses">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${description0}</var>
+<arg>xpath://*[@id="inventory_container"]/div/div[1]/div[2]/div[1]/div</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:28.856" level="INFO">${description0} = carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.</msg>
+<status status="PASS" starttime="20220120 14:50:28.772" endtime="20220120 14:50:28.857"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>xpath://*[@id="item_4_title_link"]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:28.858" level="INFO">Clicking link 'xpath://*[@id="item_4_title_link"]'.</msg>
+<status status="PASS" starttime="20220120 14:50:28.857" endtime="20220120 14:50:29.067"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${description1}</var>
+<arg>xpath://*[@id="inventory_item_container"]/div/div/div[2]/div[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:29.113" level="INFO">${description1} = It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.</msg>
+<status status="PASS" starttime="20220120 14:50:29.068" endtime="20220120 14:50:29.113"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>"${description0}" == "${description1}"</arg>
+<doc>Fails if the given condition is not true.</doc>
+<msg timestamp="20220120 14:50:29.114" level="FAIL">'"carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection." == "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office."' should be true.</msg>
+<status status="FAIL" starttime="20220120 14:50:29.113" endtime="20220120 14:50:29.114"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>should be true</arg>
+<arg>${description0} == ${description1}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20220120 14:50:29.115" endtime="20220120 14:50:29.115"/>
+</kw>
+<status status="FAIL" starttime="20220120 14:50:28.771" endtime="20220120 14:50:29.115"/>
+</kw>
+<kw name="Close browser and log" library="resourses" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220120 14:50:29.117" endtime="20220120 14:50:29.312"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Finish test.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:29.314" level="INFO">Finish test.</msg>
+<status status="PASS" starttime="20220120 14:50:29.312" endtime="20220120 14:50:29.315"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:29.116" endtime="20220120 14:50:29.316"/>
+</kw>
+<tag>item_description</tag>
+<tag>problem_user</tag>
+<status status="FAIL" starttime="20220120 14:50:24.276" endtime="20220120 14:50:29.317">'"carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection." == "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office."' should be true.</status>
+</test>
+<test id="s1-t7" name="Problem user check item price test case">
+<kw name="Open browser and maximize" library="resourses" type="SETUP">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${user_url}</arg>
+<arg>${user_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220120 14:50:29.330" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20220120 14:50:29.326" endtime="20220120 14:50:33.253"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220120 14:50:33.254" endtime="20220120 14:50:33.404"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Starting test in ${user_browser}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:33.405" level="INFO">Starting test in Chrome</msg>
+<status status="PASS" starttime="20220120 14:50:33.404" endtime="20220120 14:50:33.405"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Url: ${user_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:33.405" level="INFO">Test Url: https://www.saucedemo.com/</msg>
+<status status="PASS" starttime="20220120 14:50:33.405" endtime="20220120 14:50:33.405"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:29.324" endtime="20220120 14:50:33.406"/>
+</kw>
+<kw name="Login to webpage" library="resourses">
+<arg>${problem_user}</arg>
+<arg>${password}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:user-name</arg>
+<arg>${user-name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:33.408" level="INFO">Typing text 'problem_user' into text field 'id:user-name'.</msg>
+<status status="PASS" starttime="20220120 14:50:33.407" endtime="20220120 14:50:33.691"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${user-password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:33.691" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg timestamp="20220120 14:50:33.747" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220120 14:50:33.890" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220120 14:50:33.691" endtime="20220120 14:50:33.890"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:33.892" level="INFO">Clicking button 'id:login-button'.</msg>
+<status status="PASS" starttime="20220120 14:50:33.891" endtime="20220120 14:50:34.120"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Username:${user-name}, Password: ${user-password}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:34.122" level="INFO">Username:problem_user, Password: secret_sauce</msg>
+<status status="PASS" starttime="20220120 14:50:34.120" endtime="20220120 14:50:34.123"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:33.406" endtime="20220120 14:50:34.124"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://www.saucedemo.com/inventory.html</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20220120 14:50:34.158" level="INFO">Current location is 'https://www.saucedemo.com/inventory.html'.</msg>
+<status status="PASS" starttime="20220120 14:50:34.125" endtime="20220120 14:50:34.158"/>
+</kw>
+<kw name="Check item price" library="resourses">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${price0}</var>
+<arg>xpath://*[@id="inventory_container"]/div/div[1]/div[2]/div[2]/div</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:34.258" level="INFO">${price0} = $29.99</msg>
+<status status="PASS" starttime="20220120 14:50:34.160" endtime="20220120 14:50:34.258"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>xpath://*[@id="item_4_title_link"]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:34.259" level="INFO">Clicking link 'xpath://*[@id="item_4_title_link"]'.</msg>
+<status status="PASS" starttime="20220120 14:50:34.258" endtime="20220120 14:50:34.450"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${price1}</var>
+<arg>xpath://*[@id="inventory_item_container"]/div/div/div[2]/div[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:34.573" level="INFO">${price1} = $49.99</msg>
+<status status="PASS" starttime="20220120 14:50:34.451" endtime="20220120 14:50:34.573"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${price0}[1:] == ${price1}[1:]</arg>
+<doc>Fails if the given condition is not true.</doc>
+<msg timestamp="20220120 14:50:34.575" level="FAIL">'29.99 == 49.99' should be true.</msg>
+<status status="FAIL" starttime="20220120 14:50:34.573" endtime="20220120 14:50:34.575"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>should be true</arg>
+<arg>${price0}[1:] == ${price1}[1:]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20220120 14:50:34.576" endtime="20220120 14:50:34.576"/>
+</kw>
+<status status="FAIL" starttime="20220120 14:50:34.159" endtime="20220120 14:50:34.576"/>
+</kw>
+<kw name="Close browser and log" library="resourses" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220120 14:50:34.578" endtime="20220120 14:50:34.764"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Finish test.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:34.765" level="INFO">Finish test.</msg>
+<status status="PASS" starttime="20220120 14:50:34.765" endtime="20220120 14:50:34.765"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:34.577" endtime="20220120 14:50:34.765"/>
+</kw>
+<tag>item_price</tag>
+<tag>problem_user</tag>
+<status status="FAIL" starttime="20220120 14:50:29.321" endtime="20220120 14:50:34.766">'29.99 == 49.99' should be true.</status>
+</test>
+<test id="s1-t8" name="Problem user purchase test case">
+<kw name="Open browser and maximize" library="resourses" type="SETUP">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${user_url}</arg>
+<arg>${user_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220120 14:50:34.772" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20220120 14:50:34.771" endtime="20220120 14:50:38.367"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220120 14:50:38.368" endtime="20220120 14:50:38.513"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Starting test in ${user_browser}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:38.514" level="INFO">Starting test in Chrome</msg>
+<status status="PASS" starttime="20220120 14:50:38.513" endtime="20220120 14:50:38.514"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test Url: ${user_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:38.515" level="INFO">Test Url: https://www.saucedemo.com/</msg>
+<status status="PASS" starttime="20220120 14:50:38.514" endtime="20220120 14:50:38.515"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:34.768" endtime="20220120 14:50:38.515"/>
+</kw>
+<kw name="Login to webpage" library="resourses">
+<arg>${standard_user}</arg>
+<arg>${password}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:user-name</arg>
+<arg>${user-name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:38.517" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<status status="PASS" starttime="20220120 14:50:38.516" endtime="20220120 14:50:38.777"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${user-password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:38.778" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg timestamp="20220120 14:50:38.827" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220120 14:50:38.917" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220120 14:50:38.777" endtime="20220120 14:50:38.917"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:38.917" level="INFO">Clicking button 'id:login-button'.</msg>
+<status status="PASS" starttime="20220120 14:50:38.917" endtime="20220120 14:50:39.080"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Username:${user-name}, Password: ${user-password}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:39.081" level="INFO">Username:standard_user, Password: secret_sauce</msg>
+<status status="PASS" starttime="20220120 14:50:39.080" endtime="20220120 14:50:39.081"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:38.515" endtime="20220120 14:50:39.082"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://www.saucedemo.com/inventory.html</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20220120 14:50:39.140" level="INFO">Current location is 'https://www.saucedemo.com/inventory.html'.</msg>
+<status status="PASS" starttime="20220120 14:50:39.082" endtime="20220120 14:50:39.141"/>
+</kw>
+<kw name="Add to cart" library="resourses">
+<arg>//*[@id="item_5_title_link"]/div</arg>
+<arg>//*[@id="inventory_container"]/div/div[1]/div[2]/div[2]/div</arg>
+<arg>//*[@id="add-to-cart-sauce-labs-fleece-jacket"]</arg>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${product_price_id}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220120 14:50:39.144" level="INFO">${product_price_id} = //*[@id="inventory_container"]/div/div[1]/div[2]/div[2]/div</msg>
+<status status="PASS" starttime="20220120 14:50:39.143" endtime="20220120 14:50:39.144"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_name}</var>
+<arg>xpath:${product_id}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:39.231" level="INFO">${product_name} = Sauce Labs Fleece Jacket</msg>
+<status status="PASS" starttime="20220120 14:50:39.144" endtime="20220120 14:50:39.231"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_price}</var>
+<arg>xpath:${product_price_id}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:39.590" level="INFO">${product_price} = $29.99</msg>
+<status status="PASS" starttime="20220120 14:50:39.233" endtime="20220120 14:50:39.590"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Product name: ${product_name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:39.591" level="INFO">Product name: Sauce Labs Fleece Jacket</msg>
+<status status="PASS" starttime="20220120 14:50:39.590" endtime="20220120 14:50:39.591"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Product price: ${product_price}[1:]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:39.592" level="INFO">Product price: 29.99</msg>
+<status status="PASS" starttime="20220120 14:50:39.591" endtime="20220120 14:50:39.592"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${add_btn_id}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:39.593" level="INFO">Clicking button '//*[@id="add-to-cart-sauce-labs-fleece-jacket"]'.</msg>
+<status status="PASS" starttime="20220120 14:50:39.592" endtime="20220120 14:50:39.794"/>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<arg>3</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220120 14:50:39.794" endtime="20220120 14:50:39.799"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>class:btn_secondary</arg>
+<arg>REMOVE</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220120 14:50:39.801" level="INFO">Verifying element 'class:btn_secondary' contains exact text 'REMOVE'.</msg>
+<status status="PASS" starttime="20220120 14:50:39.800" endtime="20220120 14:50:39.843"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:39.141" endtime="20220120 14:50:39.844"/>
+</kw>
+<kw name="Open shopping cart" library="resourses">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>xpath://*[@id="shopping_cart_container"]/a</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:39.846" level="INFO">Clicking link 'xpath://*[@id="shopping_cart_container"]/a'.</msg>
+<status status="PASS" starttime="20220120 14:50:39.845" endtime="20220120 14:50:39.975"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220120 14:50:40.124" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-20.png"&gt;&lt;img src="selenium-screenshot-20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220120 14:50:39.975" endtime="20220120 14:50:40.124"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:39.844" endtime="20220120 14:50:40.125"/>
+</kw>
+<kw name="Checkout shopping cart" library="resourses">
+<arg>//*[@id="inventory_container"]/div/div[4]/div[2]/div[2]/div</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:checkout</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:40.127" level="INFO">Clicking button 'id:checkout'.</msg>
+<status status="PASS" starttime="20220120 14:50:40.127" endtime="20220120 14:50:40.236"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:first-name</arg>
+<arg>John</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:40.237" level="INFO">Typing text 'John' into text field 'id:first-name'.</msg>
+<status status="PASS" starttime="20220120 14:50:40.236" endtime="20220120 14:50:40.368"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:last-name</arg>
+<arg>Doe</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:40.369" level="INFO">Typing text 'Doe' into text field 'id:last-name'.</msg>
+<status status="PASS" starttime="20220120 14:50:40.369" endtime="20220120 14:50:40.491"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:postal-code</arg>
+<arg>01010</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:40.492" level="INFO">Typing text '01010' into text field 'id:postal-code'.</msg>
+<status status="PASS" starttime="20220120 14:50:40.491" endtime="20220120 14:50:40.631"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:continue</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:40.632" level="INFO">Clicking button 'id:continue'.</msg>
+<status status="PASS" starttime="20220120 14:50:40.631" endtime="20220120 14:50:40.725"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Checkout: Overview</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220120 14:50:40.748" level="INFO">Current page contains text 'Checkout: Overview'.</msg>
+<status status="PASS" starttime="20220120 14:50:40.725" endtime="20220120 14:50:40.748"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>page should contain:</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:40.749" level="INFO">page should contain:</msg>
+<status status="PASS" starttime="20220120 14:50:40.749" endtime="20220120 14:50:40.749"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${final_price}</var>
+<arg>xpath://*[@id="checkout_summary_container"]/div/div[1]/div[3]/div[2]/div[2]/div</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:40.791" level="INFO">${final_price} = $49.99</msg>
+<status status="PASS" starttime="20220120 14:50:40.749" endtime="20220120 14:50:40.791"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Final price: ${final_price}[1:]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:40.792" level="INFO">Final price: 49.99</msg>
+<status status="PASS" starttime="20220120 14:50:40.791" endtime="20220120 14:50:40.792"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${total_price}</var>
+<arg>xpath://*[@id="checkout_summary_container"]/div/div[2]/div[7]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:40.822" level="INFO">${total_price} = Total: $53.99</msg>
+<status status="PASS" starttime="20220120 14:50:40.792" endtime="20220120 14:50:40.822"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Total price: ${total_price}[1:]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:40.822" level="INFO">Total price: otal: $53.99</msg>
+<status status="PASS" starttime="20220120 14:50:40.822" endtime="20220120 14:50:40.823"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:finish</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:40.823" level="INFO">Clicking button 'id:finish'.</msg>
+<status status="PASS" starttime="20220120 14:50:40.823" endtime="20220120 14:50:40.922"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>THANK YOU FOR YOUR ORDER</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220120 14:50:40.948" level="INFO">Current page contains text 'THANK YOU FOR YOUR ORDER'.</msg>
+<status status="PASS" starttime="20220120 14:50:40.923" endtime="20220120 14:50:40.948"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:back-to-products</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:40.949" level="INFO">Clicking button 'id:back-to-products'.</msg>
+<status status="PASS" starttime="20220120 14:50:40.949" endtime="20220120 14:50:41.085"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://www.saucedemo.com/inventory.html</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20220120 14:50:41.252" level="INFO">Current location is 'https://www.saucedemo.com/inventory.html'.</msg>
+<status status="PASS" starttime="20220120 14:50:41.086" endtime="20220120 14:50:41.253"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_price}</var>
+<arg>xpath:${product_price_id}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220120 14:50:41.304" level="INFO">${product_price} = $49.99</msg>
+<status status="PASS" starttime="20220120 14:50:41.253" endtime="20220120 14:50:41.304"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Product price: ${product_price}[1:]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:41.305" level="INFO">Product price: 49.99</msg>
+<status status="PASS" starttime="20220120 14:50:41.304" endtime="20220120 14:50:41.305"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${product_price}[1:] == ${final_price}[1:]</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20220120 14:50:41.305" endtime="20220120 14:50:41.306"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:40.125" endtime="20220120 14:50:41.306"/>
+</kw>
+<kw name="Close browser and log" library="resourses" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220120 14:50:41.307" endtime="20220120 14:50:41.507"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Finish test.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220120 14:50:41.508" level="INFO">Finish test.</msg>
+<status status="PASS" starttime="20220120 14:50:41.507" endtime="20220120 14:50:41.508"/>
+</kw>
+<status status="PASS" starttime="20220120 14:50:41.307" endtime="20220120 14:50:41.510"/>
+</kw>
+<tag>add_to_cart checkout</tag>
+<tag>login</tag>
+<tag>problem_user</tag>
+<status status="PASS" starttime="20220120 14:50:34.767" endtime="20220120 14:50:41.510"/>
+</test>
+<doc>Keywords and Variables in separate files in directory resourses</doc>
+<status status="FAIL" starttime="20220120 14:49:54.216" endtime="20220120 14:50:41.521"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="5" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">add_to_cart checkout</stat>
+<stat pass="0" fail="2" skip="0">hilo-lohi</stat>
+<stat pass="0" fail="1" skip="0">item_description</stat>
+<stat pass="0" fail="1" skip="0">item_name</stat>
+<stat pass="0" fail="1" skip="0">item_price</stat>
+<stat pass="1" fail="2" skip="0">login</stat>
+<stat pass="1" fail="0" skip="0">login locked_out_user</stat>
+<stat pass="1" fail="0" skip="0">login logout add_to_cart checkout</stat>
+<stat pass="1" fail="5" skip="0">problem_user</stat>
+<stat pass="0" fail="2" skip="0">sorting</stat>
+</tag>
+<suite>
+<stat pass="3" fail="5" skip="0" id="s1" name="1 Test">1 Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
