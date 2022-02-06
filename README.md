@@ -21,6 +21,10 @@ Bot runs procedures as standard, locked-out and problem user  on 'https://www.sa
 6. `1_test.robot` will open `https://www.saucedemo.com/` in Chrome browser
 7. After all procedures performed by ***Robotframework*** there will be `log.html`,  `output.html` and `report.html` files with all data about running tests.
 
+_Test results:_</br>
+![log](./images/log.png) </br>
+![report](./images/report.png) </br>
+
 
 ### Prerequisites
 1. You need `python 3.3+` to be installed
